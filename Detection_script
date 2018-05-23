@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N Decontamination
+#PBS -S /bin/bash
+#PBS -q UCTlong
+#PBS -l nodes=1:series600:ppn=4
+#PBS -V
+#PBS -M # your email
+#PBS -d /home/cbio/medmicbio/samson/qiime/decontamination/logs
+
+source /home/kmwaikono/activate_qiime.sh # activates qiime tools, change path as required
+
+inDir=/home/cbio/medmicbio/samson/qiime/decontamination # path to your input directory
+outDir=/home/cbio/medmicbio/samson/qiime/decontamination # path to output directory
+
+align_seqs.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -e 250 -m Pynast -a uclust -p 100.0 
+
+#  conta.fa: is a fasta file of contaminant / background sequences from the spiked control after removal of the known spiked bacteria
+#  otus_prealigned.fa: Is a pre aligned fasta file of the target biological samples sequences
+# -e = 250: Align sequences at their full length (i.e. 250) this depends on the final length of the merged sequences.
+# -p = 100: Percent sequence similarity
+# -m = PyNAST: Alignment method
+# -a = uclust: Method for pairwise alignment
+# Note: Sample data of conta.fa file (background of spiked control) and Otus-prealigned.fa (pre_aligned biological sample sequences) are given as ....

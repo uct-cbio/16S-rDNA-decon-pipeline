@@ -1,0 +1,13 @@
+candidate sequence ID	candidate nucleotide count	errors	template ID	BLAST percent identity to template	candidate nucleotide count post-NAST
+OTU_2	250		OTU_2 1..250	100.00	250
+OTU_3	250		OTU_1 1..250	100.00	250
+OTU_4	250	No search results.
+OTU_5	250		OTU_53 1..250	100.00	250
+OTU_6	250	No search results.
+PyNastAligner parameters:
+Algorithm:NAST
+Application:PyNAST
+blast_db:None
+min_len:250
+min_pct:100.0
+pairwise_alignment_method:uclust
