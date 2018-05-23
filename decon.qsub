@@ -4,13 +4,13 @@
 #PBS -q UCTlong
 #PBS -l nodes=1:series600:ppn=4
 #PBS -V
-#PBS -M # your email
+#PBS -M # your email for the job status notification
 #PBS -d /home/cbio/medmicbio/samson/qiime/decontamination/logs
 
 source /home/kmwaikono/activate_qiime.sh # activates qiime tools, change path as required
 
 inDir=/home/cbio/medmicbio/samson/qiime/decontamination # path to your input directory
-outDir=/home/cbio/medmicbio/samson/qiime/decontamination # path to output directory
+outDir=/home/cbio/medmicbio/samson/qiime/decontamination # path to the output directory
 
 align_seqs.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -e 250 -m Pynast -a uclust -p 100.0 
 
