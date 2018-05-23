@@ -15,7 +15,7 @@ outDir=/home/cbio/medmicbio/samson/qiime/decontamination # path to the output di
 align_seqs.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -e 250 -m Pynast -a uclust -p 100.0 
 
 #  conta.fa: is a fasta file of contaminant / background sequences from the spiked control after removal of the known spiked bacteria
-#  otus_prealigned.fa: Is a pre aligned fasta file of the target biological samples sequences
+#  otus_prealigned.fa: Is a pre aligned fasta file of the target biological samples sequences (# Nextflow output in otus.alig)
 # -e = 250: Align sequences at their full length (i.e. 250) this depends on the final length of the merged sequences.
 # -p = 100: Percent sequence similarity
 # -m = PyNAST: Alignment method
