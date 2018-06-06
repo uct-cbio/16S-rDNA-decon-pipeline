@@ -23,4 +23,4 @@ rowcount=maxf
 for (( i=1; i<=rowcount; i++ )); do
     awk -v i="$i" -F " " '{printf("%s\t ", $i)}' decont-table.txt
     echo
-done >> final-otu-table.txt
+done >> final-otu-table.txt ## This table can now be used in the downstream processing such biom file generation
