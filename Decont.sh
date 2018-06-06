@@ -11,9 +11,9 @@ done >> trans-otu-table.txt
 
 ##Removing contaminant reads
 
-awk 'NR==1; BEGIN{FS=OFS="\t"}{;$6=$6-400; $2=$2-10}1' trans-otus-table.txt | sed '2d'|awk '$2<0 {$2=0}; $6<0 {$6=0} 1' OFS='\t' > decont-table.txt
+awk 'NR==1; BEGIN{FS=OFS="\t"}{;$6=$6-4; $23=$23-9; $87=$87-1}1' trans-otus-table.txt | sed '2d'|awk '$6<0 {$6=0}; $23<0 {$23=0}; $87<0 {$87=0}1' OFS='\t' > decont-table.txt
 
-##NOTE: $2 and $6 are the OTUs columns in the biological samples which mapped to the contaminant reads. 400 and 10 are their respective average reads from the background of the spiked controls 
+##NOTE: $6 and $23 and $87 are the OTUs columns in the otu-table of biological samples which mapped to the contaminant reads, while 4, 9 and 1 are their respective average reads from the background of the spiked controls 
 
 
 ##.Transposing otu-table to qiime compatible format ..................................
