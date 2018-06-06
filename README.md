@@ -13,7 +13,7 @@ At least three replicate of a blank (or sampling media) spiked with known pure b
 5. Search for contaminant sequences in the target sample by comparing sequences of the background of the spiked control and the target biological sample
 6. Remove detected contaminants OTUs/Sequences from the biological samples
 
-# Detection of the contaminant OTUs/Sequences from the target biological sample
+# Detection of contaminants from the target samples
 The background sequences of the spiked control after removing the spiked bacteria sequences are aligned against the biological sample sequences to search for the possible matching OTUs/sequences. The script (detec.sh), also summarized below achieves this objective
 
 "align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
