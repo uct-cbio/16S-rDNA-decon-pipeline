@@ -21,7 +21,7 @@ The background sequences of the spiked control after removing the spiked bacteri
 Whereby
 - conta.fa: Is a contaminant sequences from the background of the spiked control (if using uct-cbio 16S-rDNA nextflow pipeline this file is found in folder /otu_picking
 - decon100: Is a folder to which the output will be directed
-- otus_prealigned: Prealigned biological sample sequences (if using cbio nectflow, is the output in otu_processing/otus.align)
+- otus_prealigned: Prealigned biological sample sequences (if using uct-cbio-16S-rDNA Nextflow; is the output in otu_processing/otus.align)
 - -e = 250: Align sequences at their entire length. i.e. 250bp
 - -p = 100: Percent sequence similarity between contaminant and the biological sample sequences
 - -m = PyNAST: Method for aligning sequences
@@ -33,5 +33,5 @@ Whereby
 * conta_log.txt: Summary of contaminant OTUs which aligned to biological sample sequences. 
 
 # Removing contaminants from the biological sample
-Average reads of contaminant OTUs are subtracted from their respective mapped OTUs in the biological sample otu-table.txt ( If using UCT-CBIO Nextflow pipeline, the biological sample otu-table is found in folder /nextflow-outdir/otu_picking/). If the number of reads in the contaminant OTU is higher than in their respective OTU in the biological sample, then the entire OTU will be removed, otherwise, only the equilavent reads will subtracted.
+Average reads of contaminant OTUs are subtracted from their respective mapped OTUs in the biological sample otu-table.txt (If you are using the uct-cbio-16S-rDNA Nextflow pipeline, the biological sample otu-table is found in folder /nextflow-outdir/otu_picking/). If the number of reads in the contaminant OTU is higher than in their respective OTU in the biological sample, then the entire OTU will be removed, otherwise, only the equilavent reads will subtracted.
 
