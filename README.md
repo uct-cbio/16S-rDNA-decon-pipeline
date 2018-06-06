@@ -1,5 +1,3 @@
-# 16S-rDNA-decon-pipeline  is under construction
-
 # Decontamination of the Microbiome Sequence data
 Decontamination is a process of removing contaminant sequences (OTUs) from the biological / target samples sequences data. Potential sources of contaminants are the DNA isolation and purification reagents, sample storage media, sampling tools, laboratory environments and researchers. This module points some of the aspects to implemented in the wetlab as well as in the dtrylab for the efficient implementation of the deconatmanation process. Lastly, provides a script which can detect and remove contaminant sequence from the target microbome sequence data.
 
