@@ -10,12 +10,16 @@ At least three replicate of a blank (or sampling media) spiked with known pure b
 2. Check reproducibility of the controls replicates by comparing percentage of reads in each replicate
 3. If sequence reads are comparable between replicates, then calculate the average sequence reads of each OTU detected
 4. Remove the spiked OTUs (in most cases, it is the most abundant) retain only the contaminants / background sequences
-5. Search for contaminant sequences in the target sample by aligning contaminant sequence against the pre-aligned biological sample sequences as shown below (detec.qsub script)
+5. Search for contaminant sequences in the target sample by comparing sequences of the background of the spiked control and the target biological sample
+6. Remove detected contaminants OTUs/Sequences from the biological samples
+
+# Detection of the contaminant OTUs/Sequences from the target biological sample
+The background sequences of the spiked control after removing the spiked bacteria sequences are aligned against the biological sample sequences to search for the possible matching OTUs/sequences. The script (detec.sh), also summarized below achieves this objective
 
 "align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
 
 Whereby
-- conta.fa: Is a fasta file of contaminant sequences from the background of the spiked control after removing the spiked bacteria
+- conta.fa: Is a contaminant sequences from the background of the spiked control (if using uct-cbio 16S-rDNA nextflow pipeline this file is found in folder /otu_picking
 - decon100: Is a folder to which the output will be directed
 - otus_prealigned: Prealigned biological sample sequences (if using cbio nectflow, is the output in otu_processing/otus.align)
 - -e = 250: Align sequences at their entire length. i.e. 250bp
@@ -24,7 +28,6 @@ Whereby
 - -a =uclust: Method of performing pairwise sequence alignment in PyNAST
 
 # Output files
-
 * conta_aligned.fa: Is a fasta file of sequences aligned to the biological sample 
 * conta_failures.fa: Is a fasta file of sequences which did not align to biological sample
 * conta_log.txt: Summary of contaminant OTUs which aligned to biological sample sequences. 
