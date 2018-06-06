@@ -1,6 +1,5 @@
 # Decontamination of the Microbiome Sequence data
 Decontamination is a process of removing contaminant sequences (OTUs) from the biological / target samples sequences data. Potential sources of contaminants are the DNA isolation and purification reagents, sample storage media, sampling tools, laboratory environments and researchers. This module points some of the aspects to implemented in the wetlab as well as in the dtrylab for the efficient implementation of the deconatmanation process. Lastly, provides a script which can detect and remove contaminant sequence from the target microbome sequence data.
-
 # In the Wetlab
 At least three replicate of a blank (or sampling media) spiked with known pure bacteria isolate (prefereably not expected in your study profile) should be prepared. the spiking concetration should be comparable to the concentration in the target biological sample. If there is high disperity of the DNA concentration levels betweem biological samples, then, spiked controls can as wellbe prepared at both the higher levels and lower levels. The objective is to introduce a relatively similar competition of the DNA from different OTUs during the amplification process. Run the DNA isolation, library preparation and sequencing in exactly the same ways as in the tareget biological samples.
 # Bionformatics processing
@@ -10,7 +9,6 @@ At least three replicate of a blank (or sampling media) spiked with known pure b
 4. Remove the spiked OTUs (in most cases, it is the most abundant) retain only the contaminants / background sequences
 5. Search for contaminant sequences in the target sample by comparing sequences of the background of the spiked control and the target biological sample
 6. Remove detected contaminants OTUs/Sequences from the biological samples
-
 # Detection of contaminants from the target samples
 The background sequences of the spiked control after removing the spiked bacteria sequences are aligned against the biological sample sequences to search for the possible matching OTUs/sequences. The script (detec.sh), also summarized below achieves this objective
 
@@ -24,12 +22,10 @@ Whereby
 - -p = 100: Percent sequence similarity between contaminant and the biological sample sequences
 - -m = PyNAST: Method for aligning sequences
 - -a =uclust: Method of performing pairwise sequence alignment in PyNAST
-
 # Output files
 * conta_aligned.fa: Is a fasta file of sequences aligned to the biological sample 
 * conta_failures.fa: Is a fasta file of sequences which did not align to biological sample
 * conta_log.txt: Summary of contaminant OTUs which aligned to biological sample sequences. 
-
-# Removing contaminants from the biological sample
+# Removing contaminant sequences from biological samples
 Average reads of contaminant OTUs are subtracted from their respective mapped OTUs in the biological sample otu-table.txt (If you are using the uct-cbio-16S-rDNA Nextflow pipeline, the biological sample otu-table is found in folder /nextflow-outdir/otu_picking/). If the number of reads in the contaminant OTU is higher than in their respective OTU in the biological sample, then the entire OTU will be removed, otherwise, only the equilavent reads will subtracted.
 
