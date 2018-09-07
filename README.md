@@ -12,7 +12,7 @@ At least three replicate of a blank (or sampling media) spiked with known pure b
 # Detection of contaminants from the target samples
 The background sequences of the spiked control after removing the spiked bacteria sequences are aligned against the biological sample sequences to search for the possible matching OTUs/sequences. The script (detect.sh), also summarized below achieves this objective
 
-"align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
+"align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m pynast -a uclust -e 250 -p 100 "
 
 Whereby
 - conta.fa: Is a contaminant sequences from the background of the spiked control (if using uct-cbio 16S-rDNA nextflow pipeline this file is found in folder /otu_picking
@@ -20,7 +20,7 @@ Whereby
 - otus_prealigned: Prealigned biological sample sequences (if using uct-cbio-16S-rDNA Nextflow; is the output in otu_processing/otus.align)
 - -e = 250: Align sequences at their entire length. i.e. 250bp
 - -p = 100: Percent sequence similarity between contaminant and the biological sample sequences
-- -m = PyNAST: Method for aligning sequences
+- -m = pynast: Method for aligning sequences
 - -a =uclust: Method of performing pairwise sequence alignment in PyNAST
 # Output files
 * conta_aligned.fa: Is a fasta file of sequences aligned to the biological sample 
