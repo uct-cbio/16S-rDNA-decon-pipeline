@@ -13,7 +13,7 @@ done >> trans-otu-table.txt
 
 awk 'NR==1; BEGIN{FS=OFS="\t"}{;$6=$6-4; $23=$23-9; $87=$87-1}1' trans-otus-table.txt | sed '2d'|awk '$6<0 {$6=0}; $23<0 {$23=0}; $87<0 {$87=0}1' OFS='\t' > decont-table.txt
 
-## NOTE: $6 and $23 and $87 are the columns of the OTUS in the target biological sample  otu-table which mapped to the contaminant OTUs, while 4, 9 and 1 are their respective average reads in the background of the spiked controls 
+## NOTE: $6 and $23 and $87 are the columns of the OTUS in the target biological sample otu-table which mapped to the contaminant OTUs, while 4, 9 and 1 are their respective average reads in the background of the spiked controls 
 
 
 ## Transposing otu-table to qiime compatible format
